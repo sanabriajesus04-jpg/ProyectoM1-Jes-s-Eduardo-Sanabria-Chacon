@@ -97,7 +97,7 @@ function crearPaleta() {
                 tarjeta.classList.remove('bloqueada');
             }
             else {
-                tarjeta.dataset.bloqueado = "tue";
+                tarjeta.dataset.bloqueado = "true";
                 btnBloquear.innerText = "Bloqueado";
                 tarjeta.classList.add('bloqueada');
             }
