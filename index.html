@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Colores</title>
+    <link rel = "stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- Encabezado -->
+     <header>
+        <h1>Generador de Colores</h1>
+        <p>Crea y descubre nuevas combinaciones de colores</p>
+    </header>
+    <!--Contenido principal-->
+    <main>
+        
+        <!-- Seccion de generacion -->
+        <section id="generador">
+
+            <h2>Genera tu paleta de colores</h2>
+
+            <label for="cantidad-colores">Cantidad de colores:
+            </label>
+            <select id="cantidad-colores">
+
+                <option value="6"selected>6</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <button id="generar-paleta" type="button">Generar Paleta
+            </button>
+
+               <!-- Nueva funcion: Selector para elegir el formato de texto -->
+             <label for="formato-color">formato:</label>
+             <select id = "formato-color">
+                <option value="hex" selected>HEX</option>
+                <option value="rgb">RGB</option>
+             </select>
+
+            <!-- Aqui aparecen las tarjetas de colores -->
+            <div id="paleta">
+                <div class="color1">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+
+                <div class="color2">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+
+                <div class="color3">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+
+                <div class="color4">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="color5">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+                <div class="color6">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+                <div class="color7">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+                <div class="color8">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+                <div class="color9">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+                <div class="color10">
+                    <h3></h3>
+                    <p>#FF5733</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Seccion de informacion -->
+         <section>
+
+            <h2>¿Como funciona?</h2>
+        <p>Selecciona la cantidad de colores y preciona el boton para crear una nueva paleta
+        </p>
+                
+         </section>
+
+    </main>
+
+    <!-- Pie de pagina  -->
+     <footer>
+        <p> Mi primer generador de colores - 2026    
+        </p>
+     </footer>
+
+     <!--Agregamos javaScript -->
+     <script src="./js/script.js">
+     </script>
+
+</body>
+</html>

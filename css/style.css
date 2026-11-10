@@ -1,0 +1,114 @@
+/* Diseño general de la pagina */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+/*contenido principal */
+main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Secciones */ 
+section {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+/* Selector */ 
+select {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+}
+
+/* Botones */ 
+button {
+    background-color: #789b91;
+    color:white;
+    border:none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* contenedor de las tarjetas */
+#paleta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* tarjeta de colores */
+
+.color1 {background-color: #333333;
+}
+.color2 {
+    background-color: #333333;
+}
+.color3 {
+    background-color: #68f855;
+}
+.color4 {
+    background-color: aquamarine;
+}
+.color5 {
+    background-color: rgb(35, 1, 99);
+}
+.color6 {
+    background-color: rgb(4, 70, 48);
+}
+.color7 {
+    background-color: aquamarine;
+}
+.color8 {
+    background-color: #e7d915;
+}
+.color9 {
+    background-color: rgb(8, 211, 143);
+}
+.color10 {
+    background-color: #6dc20d;
+}
+
+/* boton de bloque */
+#paleta button {
+    background-color: #526c64;
+    margin-top: 10px;
+}
+
+/* Pie de foto */
+footer {
+    text-align: center;
+    padding: 20px;
+    color:#777777;
+}
+/* Estilo para las tarjetas de colores generadas por JS */
+.color-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 120px;
+    cursor: pointer; /* Cambia el cursor a manita para indicar que se puede hacer clic */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+/* Efecto al pasar el mouse por encima de la tarjeta */
+.color-card:hover {
+    transform: scale(1.05);
+}
