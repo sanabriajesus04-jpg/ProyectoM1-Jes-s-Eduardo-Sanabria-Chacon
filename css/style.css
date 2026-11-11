@@ -98,3 +98,18 @@ footer {
     cursor: pointer;
 }
 
+/* Seccion de informacion */ 
+
+aside.info-ayuda {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+/*
+Aspectos para mejorar:
+1. No incorporaste todavía media queries para adaptar el diseño a diferentes tamaños de pantalla.
+2. Podrías mejorar la consistencia visual de los botones y las tarjetas.
+3. El texto de las tarjetas debería tener suficiente contraste para leerse sobre cualquier color generado. Actualmente, el fondo del texto ayuda, pero convendría comprobarlo con diferentes combinaciones.
+*/
