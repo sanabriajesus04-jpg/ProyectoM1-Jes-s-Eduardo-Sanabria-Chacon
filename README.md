@@ -67,7 +67,7 @@
 
 <h2 id="demo">🌐 Demo online</h2>
 
-- **Sitio web en vivo:** [Ver proyecto en funcionamiento](http://127.0.0.1:5500/index.html)
+- **Sitio web en vivo:** [Ver proyecto en funcionamiento]
 
 ---
 
