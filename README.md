@@ -67,7 +67,7 @@
 
 <h2 id="demo">🌐 Demo online</h2>
 
-- **Sitio web en vivo:** [Ver proyecto en funcionamiento]
+- **Sitio web en vivo:** [Ver proyecto en funcionamiento](https://sanabriajesus04-jpg.github.io/ProyectoM1-Jes-s-Eduardo-Sanabria-Chacon/)
 
 ---
 
