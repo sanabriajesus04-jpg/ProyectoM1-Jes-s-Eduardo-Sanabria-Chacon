@@ -1,4 +1,6 @@
-# Mi primera galeria de productos
+# ProyectoM1 Jesus Eduardo Sanabria chacon
+
+##
 
 Repositorio personal de comandos, conceptos y snippets organizados para consulta rapida durante el desarrollo.
 (link url publica)
