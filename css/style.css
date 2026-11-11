@@ -52,44 +52,6 @@ button {
     margin-top: 25px;
 }
 
-/* tarjeta de colores */
-
-.color1 {background-color: #333333;
-}
-.color2 {
-    background-color: #333333;
-}
-.color3 {
-    background-color: #68f855;
-}
-.color4 {
-    background-color: aquamarine;
-}
-.color5 {
-    background-color: rgb(35, 1, 99);
-}
-.color6 {
-    background-color: rgb(4, 70, 48);
-}
-.color7 {
-    background-color: aquamarine;
-}
-.color8 {
-    background-color: #e7d915;
-}
-.color9 {
-    background-color: rgb(8, 211, 143);
-}
-.color10 {
-    background-color: #6dc20d;
-}
-
-/* boton de bloque */
-#paleta button {
-    background-color: #526c64;
-    margin-top: 10px;
-}
-
 /* Pie de foto */
 footer {
     text-align: center;
@@ -112,3 +74,27 @@ footer {
 .color-card:hover {
     transform: scale(1.05);
 }
+
+/* Cuadro de texto para el codigo de color */
+.card-texto-color {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    pointer-events: none; /* Evita que los clics interfieran con la tarjeta */
+}
+
+/* Boton de bloqueo */
+.color-card .btn-bloqueo {
+    background-color: #526c64;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-top: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
