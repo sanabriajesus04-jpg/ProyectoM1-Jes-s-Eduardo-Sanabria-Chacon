@@ -1,9 +1,5 @@
 # 🎨 Generador de Colores
 
-<p align="center">
-  <img src="" />
-  <img src="/>
-</p>
 
 <h3 align="center">
   Crea y descubre nuevas combinaciones de colores
