@@ -56,12 +56,11 @@
 - **GitHub Pages:** Herramienta para desplegar y publicar el proyecto en la web.
 
 ---
-
 <h2 id="vista-previa">📸 Vista previa</h2>
 
-*(Aquí podrás agregar una captura de pantalla de tu aplicación funcionando)*
-<!-- Ejemplo de cómo insertar una imagen cuando la tengas: -->
-<!-- ![Vista previa de la aplicación](./ruta-a-tu-captura.png) -->
+> Así luce la aplicación funcionando en vivo:
+
+![Demostración de la aplicación](./img.md/Video-funcional.mp4.gif)
 
 ---
 
@@ -71,7 +70,13 @@
 
 ---
 
+<h2 id="proximas-secciones">🚀 Próximas secciones a agregar</h2>
+
+- [ ] Modo Oscuro / Claro para la interfaz de la aplicación.
+
+---
+
 <h2 id="autor">👨‍💻 Autor</h2>
 
-**Tu Nombre Completo**
-- GitHub: [@TuUsuario](https://github.com/sanabriajesus04-jpg/ProyectoM1-Jes-s-Eduardo-Sanabria-Chacon)
+**Jesus Eduardo Sanabria Chacon**
+- GitHub: [@Sanabriajesus04-jpg](https://github.com/sanabriajesus04-jpg/ProyectoM1-Jes-s-Eduardo-Sanabria-Chacon)
