@@ -1,8 +1,8 @@
 # 🎨 Generador de Colores
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Project-Generador%20de%20Colores-789B91?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Status-En%20Desarrollo-orange?style=for-the-badge" />
+  <img src="" />
+  <img src="/>
 </p>
 
 <h3 align="center">

@@ -4,10 +4,11 @@ const selectFormato = document.getElementById('formato-color');
 const btnGenerar = document.getElementById('generar-paleta');
 const contenedorPaleta = document.getElementById('paleta');
 
-// Estado global para almacenar las tarjetas activas
-let estadoColores = [];
+// --- MODIFICACIÓN 1: Cargar estado desde localStorage si existe ---
+const estadoGuardado = localStorage.getItem('paletaColores');
+let estadoColores = estadoGuardado ? JSON.parse(estadoGuardado) : [];
 
-// Funcion para generar un color aleatorio en formato HEX
+// Funcion para generar un color aleatorio en formato HEX (se mantiene por compatibilidad)
 function generarHexAleatorio() {
     return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 }
@@ -21,7 +22,7 @@ function hexToRgb(hex) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-// --- MODIFICACIÓN 1: Función para convertir HEX a RGBA ---
+// Función para convertir HEX a RGBA
 function hexToRgba(hex) {
     const cleanHex = hex.replace('#', '');
     const r = parseInt(cleanHex.substring(0, 2), 16);
@@ -30,7 +31,7 @@ function hexToRgba(hex) {
     return `rgba(${r}, ${g}, ${b}, 1)`;
 }
 
-// --- MODIFICACIÓN 2: Función para convertir HEX a HSL ---
+// Función para convertir HEX a HSL
 function hexToHsl(hex) {
     const cleanHex = hex.replace('#', '');
     let r = parseInt(cleanHex.substring(0, 2), 16) / 255;
@@ -56,6 +57,39 @@ function hexToHsl(hex) {
     return `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`;
 }
 
+// Convertir HSL a HEX para la generación armónica
+function hslToHex(h, s, l) {
+    l /= 100;
+    const a = s * Math.min(l, 1 - l) / 100;
+    const f = n => {
+        const k = (n + h / 30) % 12;
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+// Generar colores basados en armonía HSL respetando bloqueos
+function generarPaletaHslArmonica() {
+    let tonoBase = Math.floor(Math.random() * 360);
+    let saturacion = Math.floor(Math.random() * (80 - 40 + 1)) + 40; 
+    let luminosidad = Math.floor(Math.random() * (70 - 40 + 1)) + 40; 
+
+    sincronizarEstadoColores();
+
+    estadoColores.forEach((item, index) => {
+        if (!item.lock) {
+            let nuevoTono = (tonoBase + (index * 35)) % 360;
+            item.hex = hslToHex(nuevoTono, saturacion, luminosidad);
+        }
+    });
+}
+
+// --- MODIFICACIÓN 2: Función auxiliar para guardar en localStorage ---
+function guardarEnLocalStorage() {
+    localStorage.setItem('paletaColores', JSON.stringify(estadoColores));
+}
+
 // Sincroniza la cantidad de elementos en el estado segun el select
 function sincronizarEstadoColores() {
     const cantidadRequerida = parseInt(selectCantidad.value, 10);
@@ -66,16 +100,13 @@ function sincronizarEstadoColores() {
     if (estadoColores.length > cantidadRequerida) {
         estadoColores = estadoColores.slice(0, cantidadRequerida);
     }
+    guardarEnLocalStorage(); // Guarda cuando ajustas la cantidad
 }
 
-// Genera nuevos colores solo para los que NO estan bloqueados
+// Genera nuevos colores solo para los que NO estan bloqueados usando HSL armónico
 function regenerarColores() {
-    sincronizarEstadoColores();
-    estadoColores.forEach(item => {
-        if (!item.lock) {
-            item.hex = generarHexAleatorio();
-        }
-    });
+    generarPaletaHslArmonica();
+    guardarEnLocalStorage(); // --- MODIFICACIÓN 3: Guarda al generar nuevos colores ---
     renderizarPaleta();
 }
 
@@ -91,7 +122,7 @@ function renderizarPaleta() {
         tarjeta.style.backgroundColor = item.hex;
         tarjeta.dataset.index = index; // Guardamos el indice para identificarla
 
-        // --- MODIFICACIÓN 3: Lógica para detectar formato HEX, RGBA o HSL ---
+        // Lógica para detectar formato HEX, RGBA o HSL
         let textoColor = item.hex.toUpperCase();
         if (formatoActual === 'rgba') {
             textoColor = hexToRgba(item.hex);
@@ -99,15 +130,13 @@ function renderizarPaleta() {
             textoColor = hexToHsl(item.hex);
         }
         
-        tarjeta.innerHTML = `
-        <div class="card-texto-color"> 
+        tarjeta.innerHTML = `        <div class="card-texto-color"> 
         ${textoColor}
         </div>
         <button type="button" class="btn-bloqueo" data-index="${index}">
         ${item.lock ? '🔒 Bloqueado' : '🔓 Desbloqueado'}
         </button>
         `;
-
         contenedorPaleta.appendChild(tarjeta);
     });
 }
@@ -119,6 +148,7 @@ contenedorPaleta.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn-bloqueo')) {
         const index = parseInt(e.target.dataset.index, 10);
         estadoColores[index].lock = !estadoColores[index].lock;
+        guardarEnLocalStorage(); // --- MODIFICACIÓN 4: Guarda al bloquear/desbloquear ---
         renderizarPaleta(); // Actualiza la vista de inmediato
         return;
     }
@@ -129,7 +159,6 @@ contenedorPaleta.addEventListener('click', (e) => {
         const index = parseInt(tarjeta.dataset.index, 10);
         const formatoActual = selectFormato.value;
         
-        // --- MODIFICACIÓN 4: Mantener el mismo formato seleccionado al copiar ---
         let textoColor = estadoColores[index].hex.toUpperCase();
         if (formatoActual === 'rgba') {
             textoColor = hexToRgba(estadoColores[index].hex);

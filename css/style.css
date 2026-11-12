@@ -107,6 +107,13 @@ aside.info-ayuda {
     border-radius: 12px;
 }
 
+/* --- MEJORA: Foco visible para accesibilidad con teclado --- */
+button:focus-visible, 
+select:focus-visible {
+    outline: 3px solid #526c64; /* Un borde claro del color de tu diseño */
+    outline-offset: 2px;        /* Espacio elegante entre el elemento y el borde */
+}
+
 /*
 Aspectos para mejorar:
 1. No incorporaste todavía media queries para adaptar el diseño a diferentes tamaños de pantalla.
