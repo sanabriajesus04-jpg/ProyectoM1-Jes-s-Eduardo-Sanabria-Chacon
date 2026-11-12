@@ -18,7 +18,6 @@
 ## 📑 Índice
 - [✨ Características principales](#caracteristicas)
 - [🛠️ Tecnologías y Herramientas](#tecnologias)
-- [🚀 Cómo utilizarlo localmente](#instalacion)
 - [📸 Vista previa](#vista-previa)
 - [🌐 Demo online](#demo)
 - [👨‍💻 Autor](#autor)
